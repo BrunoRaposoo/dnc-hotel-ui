@@ -1,3 +1,4 @@
+import Alert from "../components/Alert";
 import Button from "../components/Button";
 import ImageField from "../components/Form/ImageField";
 import TextField from "../components/Form/TextField";
@@ -15,7 +16,9 @@ export default function Home() {
       <Link href={"/teste"}>Ir para teste</Link>
       <TextField label="Nome Completo"></TextField>
       <ImageField label="Selecione uma imagem" />
-      <Pagination currentPage={1} totalPages={10} destination={"/"} />
+      <Pagination currentPage={5} totalPages={100} destination={"/"} />
+      <Alert type={"success"}>Sucesso</Alert>
+      <Alert type={"danger"}>Fail</Alert>
     </section>
   );
 }
