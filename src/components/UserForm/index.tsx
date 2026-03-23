@@ -8,7 +8,7 @@ import { signup } from "@/src/app/api/auth/signup/actions";
 import { updateProfile } from "@/src/app/api/users/actions";
 import PasswordFields from "@/src/app/cadastrar/PasswordFields";
 import { User } from "@/src/types/User";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 
 const initialState = { error: false, message: "" };
 
@@ -18,7 +18,7 @@ type UserFormProps = {
 
 const UserForm = ({ user }: UserFormProps) => {
   const action = user ? updateProfile : signup;
-  const [state, formAction] = useFormState(action, initialState);
+  const [state, formAction] = useActionState(action, initialState);
 
   return (
     <>
