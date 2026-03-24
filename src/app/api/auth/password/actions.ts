@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server"
-import axios from "axios";
+import axios from "../../../../api";
 import { redirect } from "next/navigation";
 
 export async function forgotPassword(prevState: any, formData: FormData) {

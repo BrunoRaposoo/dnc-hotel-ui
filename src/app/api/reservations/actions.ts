@@ -2,7 +2,7 @@
 "use server"
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation';
-import axios from 'axios';
+import axios from '../../../api';
 import { Hotel } from '@/src/types/Hotel';
 import { Reservation, ReservationStatus } from '@/src/types/Reservation';
 import { getHotelDetail } from '../hotels/actions';

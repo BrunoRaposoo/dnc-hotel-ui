@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server"
 import { Hotel, HotelPagination } from '@/src/types/Hotel';
-import axios from 'axios';
+import axios from '../../../api';
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation';
 
