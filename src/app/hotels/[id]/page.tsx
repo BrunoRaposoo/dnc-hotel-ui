@@ -1,0 +1,44 @@
+import HotelBookingForm from "./HotelBookingForm";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { getHotelDetail } from "../../api/hotels/actions";
+import DetailPage from "@/src/components/DetailPage";
+import { getFormattedPrice } from "@/src/helpers/format/money";
+import { DetailPageProps } from "@/src/types/DetailPage";
+import UserDetail from "@/src/components/UserDetail";
+
+const HotelDetail = async ({ params }: DetailPageProps) => {
+  const session = await getServerSession();
+  if (!session?.user) redirect("/login");
+
+  const { id } = await params;
+  const hotel = await getHotelDetail(Number(id));
+  console.log(hotel);
+  return (
+    <DetailPage
+      previousPage="/"
+      title={hotel.name}
+      image={{
+        src: hotel.image ?? "/no-hotel.svg",
+        alt: `Foto do hotel ${hotel.name}`,
+      }}
+      asideContainer={{
+        title: <>{getFormattedPrice(hotel.price)}&nbsp;noite</>,
+        children: <HotelBookingForm hotel={hotel} />,
+      }}
+    >
+      <UserDetail user={hotel.owner} />
+      <hr className="mt-4" />
+      <div className="mt-4 flex flex-col">
+        <h3 className="font-bold text-2xl">Endereço</h3>
+        <span className="mt-4">{hotel.address}</span>
+      </div>
+      <div className="mt-4 flex flex-col">
+        <h3 className="font-bold text-2xl">Sobre este espaço</h3>
+        <span className="mt-4">{hotel.description}</span>
+      </div>
+    </DetailPage>
+  );
+};
+
+export default HotelDetail;
