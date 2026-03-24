@@ -3,7 +3,7 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getReservationsByUser } from '../reservations/actions';
-import axios from 'axios';
+import axios from '../../../api';
 import { User, UserProfile } from '@/src/types/User';
 import { decryptToken } from '@/src/helpers/decryptToken';
 import { getHotelByOwner } from '../hotels/actions';
