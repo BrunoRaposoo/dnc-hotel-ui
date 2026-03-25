@@ -20,7 +20,7 @@ const DetalhesReservaPage = async ({ params }: DetailPageProps) => {
     <DetailPage
       title={`Sua reserva na ${reservation.hotel.name}`}
       image={{
-        src: reservation.hotel.image ?? "/no-hotel.jpg",
+        src: reservation.hotel.image ?? "/no-hotel.svg",
         alt: `Foto do hotel ${reservation.hotel.name}`,
       }}
       backButton={
