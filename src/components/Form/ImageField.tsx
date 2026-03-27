@@ -32,7 +32,7 @@ const ImageField = ({ id, label, name, defaultValue }: ImageFieldProps) => {
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <Image
-        src={(image as string) ?? defaultValue ?? "/default-profile.svg"}
+        src={(image as string) ?? defaultValue ?? "/default-profile.jpg"}
         width={100}
         height={100}
         alt="Profile picture"
